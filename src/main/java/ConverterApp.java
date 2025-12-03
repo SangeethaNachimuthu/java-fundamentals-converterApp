@@ -36,7 +36,7 @@ public class ConverterApp {
                 default:
                     System.out.println("Please enter the correct options from 1 to 4.");
             }
-        } while (option < 4);
+        } while (option != 4);
     }
 
     /*
@@ -44,8 +44,8 @@ public class ConverterApp {
     Using the LocalDateTime and formatter, displayed converted time.
      */
     public void lengthConverter() {
-        System.out.println("Enter length in meter: ");
-        double meter = scan.nextDouble();
+
+        double meter = getValidInput("Enter length in meter: ");
         double kilometer = meter/1000;
         System.out.println("Result: " +meter+ "m = " + kilometer +"km");
 
@@ -57,8 +57,7 @@ public class ConverterApp {
     Using the LocalDateTime and formatter, displayed converted time.
      */
     public void weightConverter() {
-        System.out.println("Enter weight in kilograms: ");
-        double kilograms = scan.nextDouble();
+        double kilograms = getValidInput("Enter weight in kilograms: ");
         double grams = kilograms*1000;
         System.out.println("Result: " +kilograms+ "kg = " + grams +"g");
 
@@ -70,11 +69,33 @@ public class ConverterApp {
     Using the LocalDateTime and formatter, displayed converted time.
      */
     public void timeConverter() {
-        System.out.println("Enter time in hours: ");
-        int hours = scan.nextInt();
+        int hours = (int) getValidInput("Enter time in hours: ");
         int minutes = hours*60;
         System.out.println("Result: " +hours+ "hrs = " + minutes +"mins");
 
         System.out.println("Converted at: " + dateTime.format(formatter));
+    }
+
+    /*
+    This method validates the user input and accepts only positive numbers.
+     */
+    public double getValidInput(String message) {
+        double input;
+        while(true)
+        {
+            System.out.println(message);
+            if(scan.hasNextDouble()) {
+                input = scan.nextDouble();
+                if (input >= 0) {
+                    break;
+                } else {
+                    System.out.println("Values can't be negative. Try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Enter a number.");
+                scan.next();
+            }
+        }
+        return input;
     }
 }
