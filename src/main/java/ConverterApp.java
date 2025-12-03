@@ -1,8 +1,12 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ConverterApp {
 
     Scanner scan = new Scanner(System.in);
+    LocalDateTime dateTime = LocalDateTime.now();   //Get the current time
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd HH:mm");
 
     public void main(String[] args) {
 
@@ -37,31 +41,40 @@ public class ConverterApp {
 
     /*
     This method used to convert the meter into kilometer.
+    Using the LocalDateTime and formatter, displayed converted time.
      */
     public void lengthConverter() {
         System.out.println("Enter length in meter: ");
         double meter = scan.nextDouble();
         double kilometer = meter/1000;
         System.out.println("Result: " +meter+ "m = " + kilometer +"km");
+
+        System.out.println("Converted at: " + dateTime.format(formatter));
     }
 
     /*
     This method used to convert the kilograms into grams.
+    Using the LocalDateTime and formatter, displayed converted time.
      */
     public void weightConverter() {
         System.out.println("Enter weight in kilograms: ");
         double kilograms = scan.nextDouble();
         double grams = kilograms*1000;
         System.out.println("Result: " +kilograms+ "kg = " + grams +"g");
+
+        System.out.println("Converted at: " + dateTime.format(formatter));
     }
 
     /*
     This method used to convert the hours into minutes.
+    Using the LocalDateTime and formatter, displayed converted time.
      */
     public void timeConverter() {
         System.out.println("Enter time in hours: ");
         int hours = scan.nextInt();
         int minutes = hours*60;
-        System.out.println("Result: HH:" +hours+ " = mm:" + minutes);
+        System.out.println("Result: " +hours+ "hrs = " + minutes +"mins");
+
+        System.out.println("Converted at: " + dateTime.format(formatter));
     }
 }
