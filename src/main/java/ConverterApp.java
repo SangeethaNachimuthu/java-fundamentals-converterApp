@@ -31,6 +31,7 @@ public class ConverterApp {
                     break;
                 case 4:
                     temperatureConverter();
+                    break;
                 case 5:
                     System.out.println("Thanks for using the Converter App.");
                     break;
