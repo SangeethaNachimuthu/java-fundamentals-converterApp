@@ -13,11 +13,13 @@ public class ConverterApp {
         System.out.println("2. Weight Converter");
         System.out.println("3. Time Converter");
         System.out.println("4. Temperature Converter");
-        System.out.println("5. Exit");
+        System.out.println("5. Currency Converter");
+        System.out.println("6. Grade Converter");
+        System.out.println("7. Exit");
 
         int option = 0;
         do {
-            System.out.println("Choose an option (1 to 5): ");
+            System.out.println("Choose an option (1 to 7): ");
             option = scan.nextInt();
             switch (option) {
                 case 1:
@@ -33,12 +35,18 @@ public class ConverterApp {
                     temperatureConverter();
                     break;
                 case 5:
+                    currencyConverter();
+                    break;
+                case 6:
+                    gradeConverter();
+                    break;
+                case 7:
                     System.out.println("Thanks for using the Converter App.");
                     break;
                 default:
-                    System.out.println("Please enter the correct options from 1 to 5.");
+                    System.out.println("Please enter the correct options from 1 to 7.");
             }
-        } while (option != 5);
+        } while (option != 7);
     }
 
     /*
@@ -79,6 +87,35 @@ public class ConverterApp {
         double tempInCel = getValidInput("Enter temperature in celsius: ");
         double tempInFah = (tempInCel * 9/5) + 32;
         System.out.println("Result: " +tempInCel+ "C = " + tempInFah +"F");
+        convertedTime();
+    }
+
+    /*
+    This method used to convert the currency from SEK into USD.
+     */
+    public void currencyConverter() {
+        double curSEK = getValidInput("Enter currency in SEK: ");
+        double curUSD = curSEK * 0.1058;
+        System.out.printf("%.2f SEK = %.2f USD%n", curSEK, curUSD);
+        convertedTime();
+    }
+
+    /*
+    This method used to convert the mark from percentage to grade.
+     */
+    public void gradeConverter() {
+        double percentage = getValidInput("Enter grade in Percentage: ");
+        if(percentage >= 90) {
+            System.out.println("Result: " +percentage+ " % = " +"Grade A");
+        } else if(percentage >= 80) {
+            System.out.println("Result: " +percentage+ " % = " +"Grade B");
+        } else if (percentage >= 70) {
+            System.out.println("Result: " +percentage+ " % = " +"Grade C");
+        } else if (percentage >= 60) {
+            System.out.println("Result: " +percentage+ " % = " +"Grade D");
+        } else {
+            System.out.println("Result: " +percentage+ " % = " +"Grade E");
+        }
         convertedTime();
     }
 
