@@ -1,3 +1,13 @@
+# Converter App  
+This App performs the below conversions,
+1. Length Converter (Meters ↔ Kilometers)
+2. Weight Converter (Kilograms ↔ Grams)
+3. Time Converter (Hours ↔ Minutes)
+4. Temperature Converter (Celsius ↔ Fahrenheit)
+5. Currency Converter (SEK ↔ USD)
+6. Grade Converter (Percentage → Letter grade)
+7. Exit
+
 ```
 START
     REPEAT
