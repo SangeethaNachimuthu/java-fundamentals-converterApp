@@ -50,53 +50,127 @@ public class ConverterApp {
     }
 
     /*
-    This method used to convert the length from meter into kilometer.
+    This method used to convert the length from meter into kilometer
+    and kilometer to meter.
      */
     public void lengthConverter() {
 
-        double meter = getValidInput("Enter length in meter: ");
-        double kilometer = meter/1000;
-        System.out.println("Result: " +meter+ "m = " + kilometer +"km");
+        System.out.println("a. Meter to Kilometer");
+        System.out.println("b. Kilometer to Meter");
+        String selectedOption = scan.next();
+        double meter, kilometer;
+
+        if(selectedOption.equals("a")) {
+            meter = getValidInput("Enter length in meter: ");
+            kilometer = meter/1000;
+            System.out.println("Result: " +meter+ "m = " + kilometer +"km");
+        } else if (selectedOption.equals("b")) {
+            kilometer = getValidInput("Enter length in kilometer: ");
+            meter = kilometer * 1000;
+            System.out.println("Result: " +kilometer+ "km = " + meter +"m");
+        } else {
+            System.out.println("Invalid input. Choose 'a' or 'b'.");
+        }
         convertedTime();
     }
 
     /*
-    This method used to convert the weight from kilograms into grams.
+    This method used to convert the weight from kilograms into grams
+    and grams to kilograms.
      */
     public void weightConverter() {
-        double kilograms = getValidInput("Enter weight in kilograms: ");
-        double grams = kilograms*1000;
-        System.out.println("Result: " +kilograms+ "kg = " + grams +"g");
+
+        System.out.println("a. Kilograms to Grams");
+        System.out.println("b. Grams to Kilograms");
+        String selectedOption = scan.next();
+        double grams, kilograms;
+
+        if(selectedOption.equals("a")) {
+            kilograms = getValidInput("Enter weight in kilograms: ");
+            grams = kilograms * 1000;
+            System.out.println("Result: " +kilograms+ "km = " + grams +"g");
+        } else if (selectedOption.equals("b")) {
+            grams = getValidInput("Enter weight in grams: ");
+            kilograms = grams / 1000;
+            System.out.println("Result: " +grams+ "g = " + kilograms +"kg");
+        } else {
+            System.out.println("Invalid input. Choose 'a' or 'b'.");
+        }
         convertedTime();
     }
 
     /*
-    This method used to convert the time from hours into minutes.
+    This method used to convert the time from hours into minutes
+    and minutes to hours.
      */
     public void timeConverter() {
-        int hours = (int) getValidInput("Enter time in hours: ");
-        int minutes = hours*60;
-        System.out.println("Result: " +hours+ "hrs = " + minutes +"mins");
+
+        System.out.println("a. Hours to Minutes");
+        System.out.println("b. Minutes to Hours");
+        String selectedOption = scan.next();
+        int hours , minutes;
+
+        if (selectedOption.equals("a")) {
+            hours = (int) getValidInput("Enter time in hours: ");
+            minutes = hours * 60;
+            System.out.println("Result: " + hours + "hrs = " + minutes + "mins");
+        } else if (selectedOption.equals("b")) {
+            minutes = (int) getValidInput("Enter time in minutes: ");
+            hours = minutes / 60;
+            System.out.println("Result: " + minutes + "mins = " + hours + "hrs");
+        } else {
+            System.out.println("Invalid input. Choose 'a' or 'b'.");
+        }
         convertedTime();
     }
 
     /*
-    This method used to convert the temperature from Celsius into Fahrenheit.
+    This method used to convert the temperature from Celsius into Fahrenheit
+    and Fahrenheit into Celsius.
      */
     public void temperatureConverter() {
-        double tempInCel = getValidInput("Enter temperature in celsius: ");
-        double tempInFah = (tempInCel * 9/5) + 32;
-        System.out.println("Result: " +tempInCel+ "C = " + tempInFah +"F");
+
+        System.out.println("a. Celsius to Fahrenheit");
+        System.out.println("b. Fahrenheit to Celsius");
+        String selectedOption = scan.next();
+        double tempInCel, tempInFah;
+
+        if (selectedOption.equals("a")) {
+            tempInCel = getValidInput("Enter temperature in celsius: ");
+            tempInFah = (tempInCel * 9 / 5) + 32;
+            System.out.printf("Result: %.2fF = %.2fC%n", tempInCel, tempInFah);
+        } else if (selectedOption.equals("b")) {
+            tempInFah = getValidInput("Enter temperature in fahrenheit: ");
+            tempInCel = (tempInFah - 32) * 5 / 9;
+            System.out.printf("Result: %.2fF = %.2fC%n", tempInFah, tempInCel);
+        } else {
+            System.out.println("Invalid input. Choose 'a' or 'b'.");
+        }
         convertedTime();
     }
 
     /*
-    This method used to convert the currency from SEK into USD.
+    This method used to convert the currency from SEK into USD
+    and USD to SEK.
      */
     public void currencyConverter() {
-        double curSEK = getValidInput("Enter currency in SEK: ");
-        double curUSD = curSEK * 0.1058;
-        System.out.printf("%.2f SEK = %.2f USD%n", curSEK, curUSD);
+
+        System.out.println("a. SEK to USD");
+        System.out.println("b. USD to SEK");
+        String selectedOption = scan.next();
+        double curSEK, curUSD;
+
+        if (selectedOption.equals("a")) {
+            curSEK = getValidInput("Enter currency in SEK: ");
+            curUSD = curSEK * 0.1058;
+            System.out.printf("Result: %.2f SEK = %.2f USD%n", curSEK, curUSD);
+        } else if (selectedOption.equals("b")) {
+            curUSD = getValidInput("Enter currency in USD: ");
+            curSEK = curUSD / 0.1058;
+            System.out.printf("Result: %.2f USD = %.2f SEK%n", curUSD, curSEK);
+        } else {
+            System.out.println("Invalid input. Choose 'a' or 'b'.");
+        }
         convertedTime();
     }
 
